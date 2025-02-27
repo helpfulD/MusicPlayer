@@ -1,0 +1,47 @@
+<!--使用swipper轮播图组件-->
+<swiper 
+class="imageContainer"
+indicator-dots="true"
+indicator-color="white"
+indicator-active-color="#c20c0c"
+autoplay="true"
+interval="3000"
+circular="true">
+    <block wx:for="{{imgUrls}}" wx:for-item="imgOne">
+        <swiper-item>
+            <image src="{{imgOne}}"/>
+        </swiper-item>
+    </block>
+</swiper>
+
+<!-- 搜索框 -->
+<view class="searchArea">
+    <view class="searchInput">
+        <input  bindinput="getKeyword" type="text"></input>
+    </view>
+    <view class="searchButton" bindtap="doSearch">
+        <image src="/images/search.png" ></image>
+    </view>
+</view>
+
+<!-- 使用for循环遍历所有歌曲-->
+<block wx:for="{{songs}}" wx:for-item="song" wx:for-index="i">
+    <view class="musicContainer">
+        <!-- 左边封面 -->
+        <view class="left">
+            <image wx:if="{{albumPicUrls[i]}}"
+            src='{{albumPicUrls[i]}}'>
+            </image>
+        </view>
+        <!-- 中间歌曲信息 -->
+        <view class="center">
+            <view class="songName">{{song.name}}</view>
+            <view class="singerName">{{song.artists[0].name}}-《{{song.album.name}}》</view>
+        </view>
+        <!-- 右边播放按钮 -->
+        <view class="right">
+            <image bindtap='gotoPlay' src="/images/play.png" data-id="{{song.id}}">
+            </image>
+        </view>
+    </view>
+</block>

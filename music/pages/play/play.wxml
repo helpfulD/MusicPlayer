@@ -1,0 +1,57 @@
+<!-- 设置一个大容器,跟屏幕一样大小 -->
+<view class="content">
+    <!-- 整个播放页面的背景图片 -->
+    <image class="big_img" mode="aspectFill"
+    src="{{song.album.picUrl}}"></image>
+    <view class="title">{{song.name}}</view>
+    <view class="middle">
+        <swiper class="middle-swipper">
+            <!-- 封面 -->
+            <swiper-item class="cd-wrapper">
+                <view class="cd-image">
+                    <image 
+                    style="animation-play-state: {{state=='play'?'running':'paused'}};"
+                    src="{{song.album.picUrl}}"></image>
+                </view>
+            </swiper-item>
+            <!-- 歌词滚动区域 -->
+            <swiper-item>
+            <!-- 使用可以滚动的scroll-view -->
+            <scroll-view class="lyric-wrapper" scroll-y="true" scroll-with-animation="true" scroll-top="{{marginTop}}">
+                <!-- 存放所有歌词 -->
+               <view class="contentArray">
+                    <block wx:for="{{lyricArray}}" wx:for-item="lyric">
+                    <text class="{{currentIndex==index?'currentLyric':''}}">
+                    {{lyric[1]}}</text>
+                    </block>
+               </view>
+            </scroll-view>
+            </swiper-item>
+        </swiper>
+    </view>
+
+  <!-- 进度条 -->
+  <view wx:if="{{endTime}}" class="progress">
+    <!-- 播放时间 -->
+    <view class="play_time">{{playTime}}</view>
+    <slider bindchange="dragProgress"  max="{{max}}" value="{{move}}" block-size="15" block-color="#c20c0c" activeColor="#c20c0c"></slider>
+    <!-- 结束时间 -->
+    <view class="end_time">{{endTime}}</view>
+  </view>
+
+    <!-- 控制按钮 -->
+    <view class="controls">
+        <image bindtap="changeMode" 
+        src="/images/{{mode=='single'?'single':'loop'}}.png"></image>
+        <image bindtap="prevSong" src="/images/prev.png"></image>
+        <image bindtap="playOrPasue" 
+        src="/images/{{state=='play'?'pause':'playMusic'}}.png"></image>
+        <image bindtap="nextSong" src="/images/next.png"></image>
+        <image src="/images/like.png"></image>
+    </view>
+</view>
+
+<!-- 播放音频的标签 -->
+<audio bindended="changeMusic" wx:if="https://music.163.com/song/media/outer/url?id={{id}}.mp3" 
+action="{{action}}" bindtimeupdate="changeTime"
+src="https://music.163.com/song/media/outer/url?id={{id}}.mp3"></audio>

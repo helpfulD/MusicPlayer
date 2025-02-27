@@ -1,0 +1,99 @@
+/* 设置图片轮播样式 */
+.imageContainer{
+    width: 100%;
+    height: 300rpx;
+    background: white;
+}
+
+/* 对swipper中的图片设置样式 */
+.imageContainer image{
+    width: 100%;
+    height: 100%;
+}
+
+/* 对歌曲列表做样式设置 */
+.musicContainer{
+    width: 100%;
+    height: 150rpx;
+    background:#313030;
+    /* 上外边距 */
+    margin-top: 10rpx;
+    /* 弹性盒子布局 */
+    display: flex;
+}
+
+.left{
+    width: 150rpx;
+    height: 150rpx;
+}
+.left image{
+    width: 140rpx;
+    height: 140rpx;
+    margin: 5rpx;
+    border-radius: 7%;
+}
+
+.center{
+    width: 450rpx;
+    height: 150rpx;
+}
+.songName{
+    color: white;
+    font-size: 35rpx;
+    padding-left: 25rpx;
+    margin-top: 20rpx;
+}
+.singerName{
+    color: white;
+    font-size: 25rpx;
+    padding-left: 25rpx;
+    margin-top: 20rpx;
+}
+
+.right{
+    width: 150rpx;
+    height: 150rpx;
+}
+
+/* 播放按钮 */
+.right image{
+    width: 130rpx;
+    height: 130rpx;
+    margin: 10rpx;
+}
+
+/* 搜索框样式 */
+.searchArea{
+    width: 100%;
+    height: 100rpx;
+    display: flex;
+    margin-top: 10rpx;
+}
+
+/* 存放input的view */
+.searchInput{
+    width: 660rpx;
+    height: 100rpx;
+    background: #d6d6d6;
+    border-style:initial;
+}
+
+/* 调整input框 */
+.searchInput input{
+    width: 660rpx;
+    height: 100rpx;
+    padding-left: 20rpx;
+
+}
+
+/* 存放button的view */
+.searchButton{
+    width: 100rpx;
+    height: 100rpx;
+    background: #d6d6d6;
+}
+
+.searchButton image{
+    width: 100%;
+    height: 100%;
+}

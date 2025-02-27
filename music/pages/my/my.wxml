@@ -1,0 +1,20 @@
+<!-- 使用for循环遍历所有歌曲-->
+<block wx:for="{{songs}}" wx:for-item="song" wx:for-index="i">
+    <view class="musicContainer">
+        <!-- 左边封面 -->
+        <view class="left">
+            <image  src='{{song.album.picUrl}}'>
+            </image>
+        </view>
+        <!-- 中间歌曲信息 -->
+        <view class="center">
+            <view class="songName">{{song.name}}</view>
+            <view class="singerName">{{song.artists[0].name}}-《{{song.album.name}}》</view>
+        </view>
+        <!-- 右边播放按钮 -->
+        <view class="right">
+            <image bindtap='gotoPlay' src="/images/play.png" data-id="{{song.id}}">
+            </image>
+        </view>
+    </view>
+</block>
